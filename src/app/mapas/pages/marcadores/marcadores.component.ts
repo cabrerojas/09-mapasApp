@@ -40,7 +40,7 @@ export class MarcadoresComponent implements AfterViewInit {
     //       .addTo(this.mapa);
 
   }
-  
+
   agregarMarcador(): void {
     // tslint:disable-next-line: no-bitwise
     const color = '#xxxxxx'.replace(/x/g, y => ( Math.random() * 16 | 0).toString(16));
@@ -55,9 +55,21 @@ export class MarcadoresComponent implements AfterViewInit {
       marker: nuevoMarcador
     });
   }
-  
-  
-    irMarcador(): void {
-      // this.mapa.flyTo()
+
+    irMarcador(marcador: mapboxgl.Marker): void {
+
+      this.mapa.flyTo({
+        center: marcador.getLngLat()
+      });
     }
+
+
+    guardarMarcadoresLocalStorage(): void {
+
+    }
+
+    leerMarcadoresLocalStorage(): void {
+
+    }
+
 }
